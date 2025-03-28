@@ -5,7 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clickable Date Boxes</title>
-
+    <script>
+        if (localStorage.getItem("login") !== "true") {
+            window.location.href = "../signup/login.html";
+        }
+    </script>
 
     <style>
         body {
@@ -14,7 +18,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa, #e9bade);
+            background-color: #f4eefc;
             margin: 0;
         }
 
@@ -109,7 +113,6 @@
             }
         }
 
-        // Fetch entries on page load
         fetchEntries();
     </script>
 </body>

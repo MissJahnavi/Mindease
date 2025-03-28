@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat with AI</title>
+
+    <script>
+      if (localStorage.getItem("login") !== "true") {
+          window.location.href = "../signup/login.html";
+      }
+  </script>
+  
     <style>
       body {
         font-family: Arial, sans-serif;

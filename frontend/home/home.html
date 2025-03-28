@@ -21,34 +21,63 @@
 
         <nav>
             <ul>
-                <li><a href="home.html" target="_blank">Home</a></li>
-                <li><a href="../aboutus/aboutus.html" target="_blank">About us</a></li>
-                <li><a href="../resources/resources.html" target="_blank">Resources</a></li>
-                <li><a href="../talk-to-us/gethelp.html" target="_blank">Talk to us</a></li>
-                <li><a href="../journal/index.html" target="_blank">Daily Journal</a></li>
-                <li><a href="../mood-tracker/index.html" target="_blank">MoodTracker</a></li>
+                <li><a href="home.html" target="">Home</a></li>
+                <li><a href="../aboutus/aboutus.html" target="">About us</a></li>
+                <li><a href="../resources/resources.html" target="">Resources</a></li>
+                <li><a href="../talk-to-us/gethelp.html" target="">Talk to us</a></li>
+                <li><a href="../journal/index.html" target="">Daily Journal</a></li>
+                <li><a href="../mood-tracker/index.html" target="">MoodTracker</a></li>
             </ul>
         </nav>
+
         <div class="auth-buttons">
-            <!-- <button class="login">Login</button> -->
-            <!-- <button class="register">Register</button> -->
-            <button onclick="openLogin()"
-                style="background-color:green;color:white;border:none;padding:10px 20px;cursor:pointer;">Login</button>
-
-            <script>
-                function openLogin() {
-                    window.open("login.html", "_blank"); // Opens in a new tab
-                }
-            </script>
-            <button onclick="openRegister()"
-                style="background-color:green;color:white;border:none;padding:10px 20px;cursor:pointer;">Register</button>
-
-            <script>
-                function openRegister() {
-                    window.open("register.html", "_blank"); // Opens in a new tab
-                }
-            </script>
+            <div id="auth-container">
+                <!-- Buttons will be dynamically inserted here -->
+            </div>
         </div>
+        
+        <script>
+            function checkAuth() {
+                const authContainer = document.getElementById("auth-container");
+                const isLoggedIn = localStorage.getItem("login"); // Check if "login" is set
+        
+                if (isLoggedIn) {
+                    // User is logged in, show logout button
+                    authContainer.innerHTML = `
+                        <button onclick="logout()" 
+                            style="background-color:red;color:white;border:none;padding:10px 20px;cursor:pointer;">
+                            Logout
+                        </button>`;
+                } else {
+                    // User is not logged in, show login & register buttons
+                    authContainer.innerHTML = `
+                        <button onclick="openLogin()"
+                            style="background-color:green;color:white;border:none;padding:10px 20px;cursor:pointer;">
+                            Login
+                        </button>
+                        <button onclick="openRegister()"
+                            style="background-color:green;color:white;border:none;padding:10px 20px;cursor:pointer;">
+                            Register
+                        </button>`;
+                }
+            }
+        
+            function openLogin() {
+                window.location.href = "../signup/login.html" // Opens login page in a new tab
+            }
+        
+            function openRegister() {
+                window.location.href = "../signup/register.html"
+            }
+        
+            function logout() {
+                localStorage.removeItem("login");
+                window.location.href = "home.html";
+            }
+
+            checkAuth();
+        </script>
+        
     </header>
 
     <!-- Hero Section -->

@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal Entry</title>
+    <script>
+        if (localStorage.getItem("login") !== "true") {
+          window.location.href = "../signup/login.html";
+            
+        }
+    </script>
     <style>
         body{
-            background: linear-gradient(135deg, #f5f7fa, #e9bade);
+            background-color: #f4eefc;
         }
     </style>
 </head>

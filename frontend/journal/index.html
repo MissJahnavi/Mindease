@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Everyday Journal</title>
-    <!-- <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script> -->
-
+    <script>
+      if (localStorage.getItem("login") !== "true") {
+          window.location.href = "../signup/login.html";
+      }
+  </script>
     <style>
       body {
         font-family: "Arial", sans-serif;
-        background: linear-gradient(135deg, #f5f7fa, #e9bade);
+        background-color: #f4eefc;
         margin: 0;
         padding: 20px;
         display: flex;
@@ -114,8 +116,7 @@
             .value.trim();
 
           if (entryText !== "") {
-            // Get current date in DD-MM-YY formatconst entryDate = getFormattedDate(); 
-
+            
             const entry = {
               text: entryText,
               date: new Date(),

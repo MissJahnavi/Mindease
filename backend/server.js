@@ -3,6 +3,10 @@ const admin = require("firebase-admin");
 const cors = require("cors");
 const { db, API_KEY } = require("./firebase");
 const axios = require("axios");
+const firebaseApp = require('./fb.js');
+const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } = require("firebase/auth");
+
+const auth = getAuth(firebaseApp);
 
 const app = express();
 app.use(cors());
@@ -10,6 +14,43 @@ app.use(express.json());
 
 const journalCollection = db.collection("journal");
 const moodsCollection = db.collection("moods");
+
+// Account Endpoints
+app.post("/register", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const userRecord = await createUserWithEmailAndPassword(auth, email, password);
+    res.status(201).json({ 
+      message: "User created successfully", 
+      user: { uid: userRecord.user.uid, email: userRecord.user.email }
+    });
+    
+  } catch (error) {
+    res.status(400).json({ 
+      message: "Error creating user", 
+      error: error.code || "Unknown error" 
+    });
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body; // Token received from frontend
+  
+  try {
+    
+    const userRecord = await signInWithEmailAndPassword(auth, email, password);
+    res.status(201).json({ 
+      message: true
+    });
+
+  } catch (error) {
+    res.status(401).json({ 
+      message: "Invalid token", 
+      error: error.message || "Unknown error" 
+    });
+  }
+});
 
 // Moods Endpoint
 app.post("/mood", async (req, res) => {

@@ -2,8 +2,6 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4eefc;
-    /* background-color: #f0b66f;     */
-    /* background-color: #efcda4; */
     color: #333;
     margin: 0;
     padding: 0;
@@ -147,7 +145,6 @@ footer {
 .for-whom{
     border:2px dashed grey;
     border-radius: 10%;
-    /* display:flex; */
     align-items:center;
     justify-content:center;
     
@@ -188,7 +185,7 @@ footer {
 }
 
 .step:last-child::after {
-    content: ""; /* Remove arrow for the last step */
+    content: "";
 }
 
 .highlight {
@@ -198,8 +195,8 @@ footer {
     border:2px solid grey;
 }
 #logo{
-    width: 60px;  /* Set logo width */
-    height: 60px; /* Set logo height */
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     object-fit: contain;
 }
