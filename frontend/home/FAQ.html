@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ Page</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4eefc;
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .container {
+        width: 100%;
+        max-width: 900px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        padding: 40px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #444;
+        margin-bottom: 30px;
+      }
+      .faq {
+        border-bottom: 1px solid #eee;
+        transition: all 0.3s ease;
+      }
+      .faq:last-child {
+        border-bottom: none;
+      }
+      .faq:hover {
+        background: #f9f9f9;
+      }
+      .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 20px;
+        font-size: 1.2rem;
+        color: #555;
+        transition: 0.3s;
+      }
+      .question:hover {
+        color: #ea00ff;
+      }
+      .answer {
+        display: none;
+        padding: 20px;
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+        border-top: 1px solid #eee;
+        transition: all 0.3s;
+      }
+      .icon {
+        font-size: 1.4rem;
+        transition: transform 0.3s;
+      }
+      .open .answer {
+        display: block;
+      }
+      .open .icon {
+        transform: rotate(180deg);
+        color: #b300ff;
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+        .question {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>What is MindEase?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">
+          MindEase is a platform dedicated to supporting mental well-being
+          through resources, guidance, and community support.
+        </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>Who is MindEase for?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">
+          MindEase is for anyone looking to improve their mental health, whether
+          they are experiencing stress, anxiety, depression, or simply want to
+          cultivate mindfulness and emotional resilience.
+        </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>Can I use MindEase for free?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">Yes! All of our resources are free.</div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>Is my data safe on MindEase?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">
+          Yes, we prioritize user privacy. MindEase follows strict data security
+          measures, and personal information is never shared without consent.
+        </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>Does MindEase provide crisis support?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">
+          MindEase is not a crisis intervention service. If you are in immediate
+          danger or need urgent mental health support, please reach out to a
+          crisis helpline in your country.
+        </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>Can I contribute content to MindEase?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">
+          We welcome contributions from certified mental health professionals.
+          If you're interested, please contact our team for collaboration
+          opportunities.
+        </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>Do I need to create an account to use MindEase?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">
+          While some resources are available without an account, signing up
+          allows you to track progress, save journal entries, and receive
+          personalized recommendations.
+        </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>Does MindEase use AI for mental health support?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">
+          Yes, MindEase includes AI-driven chatbots that provide general
+          emotional support, guided self-help exercises, and mindfulness
+          reminders. However, they do not replace professional therapy.
+        </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+        <div class="question">
+          <span>How accurate is the AI chatbot’s advice?</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="answer">
+          Our AI chatbot is designed to provide general guidance based on
+          psychology principles, but it is not a substitute for human
+          therapists. Always consult a professional for serious concerns.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleFAQ(faq) {
+        faq.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>

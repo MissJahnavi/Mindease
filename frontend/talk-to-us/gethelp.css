@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4eefc;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faf2ff;
+    padding: 15px 40px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #7f69a5;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.auth-buttons button {
+    background-color: transparent;
+    border: 1px solid #7f69a5;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.auth-buttons .register {
+    background-color: #7f69a5;
+    color: #fff;
+}
+
+.help-section {
+    display: flex;
+    background-color: #111;
+    color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px;
+}
+
+.help-form {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.help-form h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.help-form p {
+    margin-bottom: 20px;
+}
+
+.help-form form input,
+.help-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.help-form button {
+    background-color: #a6e3a1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #111;
+}
+
+.image-section {
+    flex: 1;
+    position: relative;
+}
+
+.image-section img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-links a,
+.footer-terms a {
+    margin: 0 10px;
+    color: #a6e3a1;
+    text-decoration: none;
+}
+
+.footer-logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+#logo{
+    width: 60px;  /* Set logo width */
+    height: 60px; /* Set logo height */
+    object-fit: cover;
+    object-fit: contain;
+    background-color: #f0f0f5;
+    ;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}

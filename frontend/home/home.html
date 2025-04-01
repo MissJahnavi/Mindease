@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindEase</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <header>
+      <div class="logo">
+        <img src="logo.jpg" id="logo" alt="logo" />
+        <h1><b>MindEase</b></h1>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="home.html" target="">Home</a></li>
+          <li><a href="../aboutus/aboutus.html" target="">About us</a></li>
+          <li><a href="../resources/resources.html" target="">Resources</a></li>
+          <li><a href="../talk-to-us/gethelp.html" target="">Talk to us</a></li>
+          <li><a href="../journal/index.html" target="">Daily Journal</a></li>
+          <li>
+            <a href="../mood-tracker/index.html" target="">MoodTracker</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="auth-buttons">
+        <div id="auth-container">
+          <!-- Buttons will be dynamically inserted here -->
+        </div>
+      </div>
+
+      <script>
+        function checkAuth() {
+          const authContainer = document.getElementById("auth-container");
+          const isLoggedIn = localStorage.getItem("login"); // Check if "login" is set
+
+          if (isLoggedIn) {
+            // User is logged in, show logout button
+            authContainer.innerHTML = `
+                        <button onclick="logout()" 
+                            style="background-color:red;color:white;border:none;padding:10px 20px;cursor:pointer;">
+                            Logout
+                        </button>`;
+          } else {
+            // User is not logged in, show login & register buttons
+            authContainer.innerHTML = `
+                        <button onclick="openLogin()"
+                            style="background-color:green;color:white;border:none;padding:10px 20px;cursor:pointer;">
+                            Login
+                        </button>
+                        <button onclick="openRegister()"
+                            style="background-color:green;color:white;border:none;padding:10px 20px;cursor:pointer;">
+                            Register
+                        </button>`;
+          }
+        }
+
+        function openLogin() {
+          window.location.href = "../signup/login.html"; // Opens login page in a new tab
+        }
+
+        function openRegister() {
+          window.location.href = "../signup/register.html";
+        }
+
+        function logout() {
+          localStorage.removeItem("login");
+          window.location.href = "home.html";
+        }
+
+        checkAuth();
+      </script>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          AI-POWERED <br />
+          DEPRESSION <br />
+          ANALYSIS TEST <i class="fa-solid fa-fan"></i>
+        </h1>
+        <p>
+          MindEase leverages cutting-edge AI to offer personalized insights into
+          mental health.
+          <br />
+          Our goal is to help individuals identify signs of depression and take
+          proactive steps towards better wellbeing.
+        </p>
+        <div class="hero-buttons">
+          <button class="start-test">Start Test</button>
+          <button class="explore">Explore</button>
+        </div>
+        <div class="ai">
+          <br /><br />
+          <p style="margin: 0; line-height: 1; margin-bottom: 0">
+            <b>Feel free to chat with our AI!!</b>
+          </p>
+          <a href="../chatbot/chatbot.html"
+            ><img
+              src="chatbotimg.png"
+              alt="chatbot logo"
+              width="150"
+              target="_blank"
+              style="margin: 0; display: block"
+          /></a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="girl in train.jpg" alt="Person in train" />
+      </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps">
+      <div class="step">
+        Answer our <b>Interactive Questionnaire</b> carefully.
+      </div>
+      <div class="step">
+        Our AI analyzes your responses to identify patterns and potential mental
+        health concerns.
+      </div>
+      <div class="step">
+        Get a <b>Detailed Report</b> with actionable insights and tailored
+        recommendations.
+      </div>
+    </section>
+
+    <!-- For Whom and Why MindEase -->
+    <section class="info">
+      <div class="for-whom">
+        <h2 id="forwhom">FOR WHOM?</h2>
+        <ul>
+          <li>
+            <i class="fa-solid fa-fan"></i> Individuals experiencing symptoms
+            like fatigue, sadness, or lack of motivation.
+          </li>
+          <li>
+            <i class="fa-solid fa-fan"></i> Those seeking to understand their
+            mental health better.
+          </li>
+          <li>
+            <i class="fa-solid fa-fan"></i> Anyone wanting an easy and private
+            first step toward help.
+          </li>
+          <li>
+            <i class="fa-solid fa-fan"></i> Caregivers and loved ones who want
+            to support someone struggling with mental health.
+          </li>
+        </ul>
+      </div>
+      <div id="ymindease">
+        <div class="why-mindease">
+          <!-- <h2>WHY MINDEASE?</h2> -->
+          <div class="features">
+            <!-- <div><b>Easy Access:</b> Take the test anytime, anywhere, on any device.</div>
+                <div><b>Confidentiality First:</b> All your data remains private and secure.</div>
+                <div><b>Accurate Precision:</b> Advanced algorithms ensure accurate analysis.</div>
+                <div><b>Non-Judgmental Support:</b> An unbiased approach to understanding your mental health.</div> -->
+            <img src="why mindease.jpg" alt="why mindease" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <a href="FAQ.html" target="_blank"
+        ><b>Need more information?Our FAQs have got you covered!</b></a
+      >
+
+      <h1>
+        <i class="fa-solid fa-fan"></i> MindEase <i class="fa-solid fa-fan"></i>
+      </h1>
+      <div class="footer-buttons">
+        <button class="take-test">Take the Mental Health Test</button>
+        <button class="explore-resources">Explore Resources</button>
+        <!-- <a href="FAQ.html"><b>Need more information?Our FAQs have got you covered!</b></a> -->
+      </div>
+    </footer>
+  </body>
+</html>

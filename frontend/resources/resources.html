@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Resources</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4eefc;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #9f0ab9;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+      }
+
+      /* Grid Layout for Resources */
+      .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      /* Resource Card Styles */
+      .resource-card {
+        background: #f7f3f6;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .resource-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .resource-icon {
+        font-size: 2.5rem;
+        color: #c435ce;
+        margin-bottom: 15px;
+      }
+
+      .resource-card h2 {
+        color: #b82fb6;
+        font-size: 1.5rem;
+        margin: 10px 0;
+      }
+
+      .resource-card p {
+        color: #0c070b;
+        font-size: 1rem;
+        margin: 10px 0 20px;
+      }
+
+      .resource-card a {
+        display: inline-block;
+        padding: 10px 20px;
+        background: linear-gradient(135deg, #b9298e, #ec64e7);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      .resource-card a:hover {
+        background: linear-gradient(135deg, #ea0aee, #f611ad);
+        transform: scale(1.05);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .resources-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Mental Health Resources</h1>
+
+      <div class="resources-grid">
+        <!-- Resource 1 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-life-ring"></i>
+          </div>
+          <h2>Avoiding Burnout: Strategies for a Balanced Work Life</h2>
+          <p>
+            In today’s fast-moving world, the line between work and personal
+            life can undoubtedly be hazy, leading to burnout- a state where
+            people get physically, mentally and emotionally worn out due to
+            extended work-related stress.
+          </p>
+          <a
+            href="https://heartitout.in/blogs/workplace-concerns/avoiding-burnout-strategies-for-a-balanced-work-life/"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Resource 2 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <h2>Grounding Exercises for Anxiety: Techniques & Benefits</h2>
+          <p>
+            Although anxiety can feel overwhelming, there are strategies to help
+            you focus on the here and now. Simple grounding techniques that can
+            help you relax both mentally and physically during an anxiety attack
+            will be covered in this blog post.
+          </p>
+          <a
+            href="https://heartitout.in/blogs/anxiety/grounding-exercises-for-anxiety/"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Resource 3 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-spa"></i>
+          </div>
+          <h2>Self-harm and recovery: let's talk about it</h2>
+          <p>
+            Once someone has started self-harming, it can become difficult to
+            stop. Whatever the reason, self-harm is a sign that someone is
+            struggling and in need of support.
+          </p>
+          <a
+            href="https://www.mentalhealth.org.uk/explore-mental-health/blogs/self-harm-and-recovery-lets-talk-about-it"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Resource 4 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h2>Mental disorders</h2>
+          <p>
+            Nearly a billion people around the world (1/8) live with a
+            diagnosable mental disorder. In all countries, mental health
+            conditions are highly prevalent. The prevalence of different mental
+            disorders varies with gender and age
+          </p>
+          <a
+            href="https://ncdalliance.org/news-events/news/20-things-you-should-know-about-mental-health-today#:~:text=Nearly%20a%20billion%20people%20around,disorders%20are%20the%20most%20common"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Resource 5 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-bandage"></i>
+          </div>
+          <h2>Bipolar disorder</h2>
+          <p>
+            Bipolar disorder is one of the leading causes of disability globally
+            as it can affect many areas of life. People with bipolar disorder
+            may experience strained relationships, problems at school or work,
+            and difficulties in carrying out daily activities. Having bipolar
+            disorder also increases the risk of suicide and of developing
+            anxiety and substance use disorders.
+          </p>
+          <a
+            href="https://www.who.int/news-room/fact-sheets/detail/bipolar-disorder"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Resource 6 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h2>Mental health facts and statistics</h2>
+          <p>
+            Learn how common mental health problems are. And statistics about
+            risk factors and mental health treatments.
+          </p>
+          <a
+            href="https://www.mind.org.uk/information-support/types-of-mental-health-problems/mental-health-facts-and-statistics/"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Resource 7 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h2>Carol's story: there should be no shame in how we feel</h2>
+          <p>
+            As the lockdown restrictions eased, her lack of friends and family
+            meant that she really didn't have anyone to support her or empathise
+            with how she was feeling.
+          </p>
+          <a
+            href="https://www.mentalhealth.org.uk/explore-mental-health/stories/carols-story-there-should-be-no-shame-how-we-feel"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Resource 8 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h2>
+            Gabi's story: my struggle with speaking up about my depression and
+            loneliness
+          </h2>
+          <p>
+            Gabi tells us how turning 30 was a bit of a milestone for her. But
+            alongside the celebration and her happy feelings of being loved by
+            so many, her life wasn't matching up to her expectations.
+          </p>
+          <a
+            href="https://www.mentalhealth.org.uk/explore-mental-health/stories/gabis-story-struggle-speaking-about-my-depression-and-loneliness"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Resource 9 -->
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h2>
+            Luke's story: binge eating, depression and how my obsession with
+            fitness wasn't necessarily a good thing
+          </h2>
+          <p>
+            Luke talks here about binge eating, body image and depression and
+            how an obsession with fitness and diving into some tough endurance
+            challenges isn't necessarily a good thing.
+          </p>
+          <a
+            href="https://www.mentalhealth.org.uk/explore-mental-health/stories/lukes-story-binge-eating-depression-and-how-my-obsession-fitness-wasnt-necessarily-good-thing"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal Entry</title>
+    <script>
+      if (localStorage.getItem("login") !== "true") {
+        window.location.href = "../signup/login.html";
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f4eefc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Journal Entry</h1>
+    <div id="entry-container">
+      <p>Loading...</p>
+    </div>
+
+    <script>
+      const API_URL = "https://mindease-phi.vercel.app";
+      async function fetchEntry() {
+        // Get the entry ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const entryId = urlParams.get("id");
+
+        if (!entryId) {
+          document.getElementById("entry-container").innerHTML =
+            "<p>Error: No entry ID provided.</p>";
+          return;
+        }
+
+        try {
+          const response = await fetch(`${API_URL}/jentry/${entryId}`);
+          if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+          }
+
+          const entry = await response.json();
+          const entryContainer = document.getElementById("entry-container");
+
+          entryContainer.innerHTML = `
+                    <h2>${new Date(
+                      entry.date._seconds * 1000
+                    ).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}</h2>
+                    <p>${entry.text}</p>
+                `;
+        } catch (error) {
+          console.error("Error fetching entry:", error);
+          document.getElementById("entry-container").innerHTML =
+            "<p>Failed to load entry.</p>";
+        }
+      }
+
+      // Fetch entry when the page loads
+      window.onload = fetchEntry;
+    </script>
+  </body>
+</html>

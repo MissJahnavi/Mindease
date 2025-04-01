@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everyday Journal</title>
+    <script>
+      if (localStorage.getItem("login") !== "true") {
+        window.location.href = "../signup/login.html";
+      }
+    </script>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4eefc;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
+      h1 {
+        color: #940391;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .container {
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 700px;
+      }
+      textarea {
+        width: 100%;
+        height: 200px;
+        padding: 5px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        resize: vertical;
+        margin-bottom: 20px;
+        transition: border-color 0.3s ease;
+      }
+      textarea:focus {
+        border-color: #e3a3dd;
+        outline: none;
+      }
+      button {
+        display: inline;
+        width: 49%;
+        padding: 12px;
+        margin-left: 4px;
+        background-color: #df70c8;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #bf0387;
+      }
+      .entries {
+        margin-top: 30px;
+      }
+      .entry {
+        background: #f9f9f9;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .entry p {
+        margin: 0;
+        font-size: 1rem;
+        color: #555;
+      }
+      .entry small {
+        display: block;
+        margin-top: 10px;
+        font-size: 0.875rem;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Everyday Journal</h1>
+    <div class="container">
+      <textarea
+        id="journalEntry"
+        placeholder="Write your thoughts here..."
+      ></textarea>
+      <button id="saveButton">Save Entry</button>
+      <button onclick="redirectPage()">Previous Entries</button>
+    </div>
+    <script>
+      const API_URL = "https://mindease-phi.vercel.app";
+
+      function redirectPage() {
+        window.location.href = "entries.html";
+      }
+
+      // Function to save a new entry
+      document
+        .getElementById("saveButton")
+        .addEventListener("click", async function () {
+          const entryText = document
+            .getElementById("journalEntry")
+            .value.trim();
+
+          if (entryText !== "") {
+            const entry = {
+              text: entryText,
+              date: new Date(),
+            };
+
+            try {
+              const response = await fetch(`${API_URL}/jlog`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(entry),
+              });
+
+              if (response.ok) {
+                document.getElementById("journalEntry").value = "";
+              } else {
+                alert("Error saving entry");
+              }
+            } catch (error) {
+              console.error("Error:", error);
+            }
+          } else {
+            alert("Please write something before saving.");
+          }
+        });
+    </script>
+  </body>
+</html>

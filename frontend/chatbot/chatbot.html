@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat with AI</title>
+
+    <script>
+      if (localStorage.getItem("login") !== "true") {
+        window.location.href = "../signup/login.html";
+      }
+    </script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #f3c5f5, #b88ded);
+        color: #0e0e0e;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      h2 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .messages {
+        width: 100%;
+        max-width: 650px;
+        height: 350px;
+        overflow-y: auto;
+        border: 1px solid #e0c4e4;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        transition: box-shadow 0.3s;
+      }
+
+      .messages:hover {
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .messages p {
+        margin: 12px 0;
+        padding: 12px 18px;
+        border-radius: 8px;
+        line-height: 1.6;
+        font-size: 16px;
+      }
+
+      .messages .user {
+        background-color: #d1e7fd;
+        color: #0e0e0e;
+        align-self: flex-end;
+      }
+
+      .messages .bot {
+        background-color: #f1f1f1;
+        color: #333;
+      }
+
+      .input-container {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        max-width: 650px;
+      }
+
+      input,
+      button {
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        transition: all 0.3s;
+      }
+
+      input {
+        flex: 1;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      input:focus {
+        border-color: #af58bb;
+        box-shadow: 0 0 8px rgba(175, 88, 187, 0.5);
+      }
+
+      button {
+        background-color: #af58bb;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #cd3c8e;
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        background-color: #9d3e9d;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        .messages {
+          height: 300px;
+        }
+
+        input,
+        button {
+          font-size: 14px;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Gemini Chat</h2>
+
+    <div class="messages" id="messages">
+      <p class="bot"><strong>Gemini:</strong> Hello! Ask me anything.</p>
+    </div>
+
+    <div class="input-container">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+      async function sendMessage() {
+        const input = document.getElementById("userInput").value;
+        if (!input) return;
+
+        const messages = document.getElementById("messages");
+
+        messages.innerHTML += `
+          <p class="user">
+            <strong>You:</strong> ${input}
+          </p>
+        `;
+
+        document.getElementById("userInput").value = "";
+
+        try {
+          const response = await fetch(
+            "https://mindease-phi.vercel.app/gemini",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ message: input }),
+            }
+          );
+
+          const data = await response.json();
+          messages.innerHTML += `
+            <p class="bot">
+              <strong>Gemini:</strong> ${data.response}
+            </p>
+          `;
+        } catch (error) {
+          console.error(error);
+          messages.innerHTML += `<p class="bot">Oops! Something went wrong.</p>`;
+        }
+
+        messages.scrollTop = messages.scrollHeight;
+      }
+    </script>
+  </body>
+</html>

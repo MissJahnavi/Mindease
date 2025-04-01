@@ -1,0 +1,234 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4eefc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.login {
+    background-color: #eaeaea;
+}
+
+.register {
+    background-color: #d4f4d4;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 50px;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.start-test {
+    background-color: #c8f7c5;
+}
+
+.explore {
+    background-color: #f0f0f0;
+}
+
+.hero-image img {
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+/* Steps Section */
+.steps {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin: 50px;
+}
+
+.step {
+    max-width: 300px;
+    text-align: center;
+}
+
+/* Info Section */
+.info {
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 50px;
+}
+
+.for-whom, .why-mindease {
+    max-width: 400px;
+}
+
+.for-whom h2, .why-mindease h2 {
+    font-size: 30px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.features div {
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.take-test {
+    background-color: #c8f7c5;
+}
+
+.explore-resources {
+    background-color: #f0f0f0;
+}
+
+.for-whom{
+    border:2px dashed grey;
+    border-radius: 10%;
+    align-items:center;
+    justify-content:center;
+    
+}
+ #forwhom{
+    text-align: center;
+ }
+
+ .for-whom ul{
+    list-style-type: none;
+ }
+
+.steps{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.step {
+    background-color: #ffffff;
+    border: 2px dashed #888;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.step::after {
+    content: "→";
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #888;
+}
+
+.step:last-child::after {
+    content: "";
+}
+
+.highlight {
+    font-weight: bold;
+}
+.explore{
+    border:2px solid grey;
+}
+#logo{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-fit: contain;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+
+.features img{
+    
+    width:600px;
+    height:auto;
+    margin-left:0;
+    margin-top: 0%;
+
+
+
+}
+.features h2{
+    text-align: center;
+}
+
+.info{
+    display:flex;
+    justify-content: space-around;
+}
+
+#ymindease{
+    text-align: right;
+    display:flex;
+    padding-right: 10rem;
+
+}
+

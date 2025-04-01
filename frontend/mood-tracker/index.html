@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Tracker</title>
+    <script>
+      if (localStorage.getItem("login") !== "true") {
+        window.location.href = "../signup/login.html";
+      }
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>MindEase Mood Tracker</h1>
+
+      <div class="form-container">
+        <h2>Submit Your Mood</h2>
+        <input type="text" id="userId" placeholder="Enter User ID" />
+        <select id="mood">
+          <option value="">Select Mood</option>
+          <option value="happy">😊 Happy</option>
+          <option value="sad">😢 Sad</option>
+          <option value="angry">😡 Angry</option>
+          <option value="excited">🤩 Excited</option>
+          <option value="calm">😌 Calm</option>
+        </select>
+        <button onclick="submitMood()">Submit Mood</button>
+      </div>
+
+      <div class="result-container">
+        <h2>Latest Mood</h2>
+        <input type="text" id="searchUserId" placeholder="Enter User ID" />
+        <button onclick="getMood()">Get Mood</button>
+        <p id="latestMood"></p>
+      </div>
+    </div>
+
+    <script>
+      const API_URL = "https://mindease-phi.vercel.app";
+
+      async function submitMood() {
+        const userId = document.getElementById("userId").value;
+        const mood = document.getElementById("mood").value;
+
+        if (!userId || !mood) {
+          alert("Please enter both User ID and Mood");
+          return;
+        }
+
+        const response = await fetch(`${API_URL}/mood`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId,
+            mood,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+
+        const data = await response.json();
+        alert(data.message || "Mood submitted successfully!");
+      }
+
+      async function getMood() {
+        const userId = document.getElementById("searchUserId").value;
+
+        if (!userId) {
+          alert("Please enter a User ID");
+          return;
+        }
+
+        const response = await fetch(`${API_URL}/mood/${userId}`);
+        const data = await response.json();
+
+        if (data.error || data.message) {
+          document.getElementById("latestMood").innerText = "No mood found!";
+        } else {
+          document.getElementById("latestMood").innerText = `Latest Mood: ${
+            data.mood
+          } (on ${new Date(data.timestamp).toLocaleString()})`;
+        }
+      }
+    </script>
+  </body>
+</html>

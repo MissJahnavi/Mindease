@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clickable Date Boxes</title>
+    <script>
+      if (localStorage.getItem("login") !== "true") {
+        window.location.href = "../signup/login.html";
+      }
+    </script>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f4eefc;
+        margin: 0;
+      }
+
+      .heading-block {
+        color: #940391;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #entries {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        max-width: 80%;
+      }
+
+      .box {
+        width: 150px;
+        height: 100px;
+        background-color: #df70c8;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        transition: transform 0.2s, background-color 0.3s;
+      }
+
+      .box:hover {
+        background-color: #bf0387;
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          max-width: 100%;
+        }
+
+        .box {
+          width: 120px;
+          height: 80px;
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="heading-block">Previous Entries</h1>
+    <div id="entries"></div>
+
+    <script>
+      const API_URL = "https://mindease-phi.vercel.app";
+      async function fetchEntries() {
+        try {
+          const response = await fetch(`${API_URL}/jentries`);
+          const data = await response.json();
+
+          const entriesContainer = document.getElementById("entries");
+
+          if (!data.length) {
+            entriesContainer.innerHTML +=
+              "<p>No entries yet. Start writing!</p>";
+          } else {
+            data.forEach((entry) => {
+              const entryDate = new Date(entry.date._seconds * 1000); // Convert seconds to milliseconds
+              const formattedDate = entryDate.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+              });
+
+              const entryLink = document.createElement("a");
+              entryLink.href = `entry.html?id=${entry.id}`; // Redirect to entry page with ID
+              entryLink.className = "box";
+              entryLink.textContent = formattedDate;
+
+              entriesContainer.appendChild(entryLink);
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching entries:", error);
+        }
+      }
+
+      fetchEntries();
+    </script>
+  </body>
+</html>
