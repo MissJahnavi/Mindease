@@ -6,7 +6,7 @@
     <title>Chat with AI</title>
 
     <script>
-      if (localStorage.getItem("login") !== "true") {
+      if (!localStorage.getItem("login")) {
         window.location.href = "../signup/login.html";
       }
     </script>

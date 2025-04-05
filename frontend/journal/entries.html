@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clickable Date Boxes</title>
+    <title>Entries</title>
     <script>
-      if (localStorage.getItem("login") !== "true") {
+      if (!localStorage.getItem("login")) {
         window.location.href = "../signup/login.html";
       }
     </script>
@@ -78,9 +78,18 @@
 
     <script>
       const API_URL = "https://mindease-phi.vercel.app";
+      const email = localStorage.getItem("login");
+      console.log(email);
       async function fetchEntries() {
         try {
-          const response = await fetch(`${API_URL}/jentries`);
+          // const response = await fetch(`${API_URL}/jentries`);
+          const response = await fetch(`${API_URL}/jentries`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          });
           const data = await response.json();
 
           const entriesContainer = document.getElementById("entries");

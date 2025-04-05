@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script>
-      if (localStorage.getItem("login") == "true") {
+      if (localStorage.getItem("login")) {
         window.location.href = "../home/home.html";
       }
     </script>
@@ -167,7 +167,7 @@
           console.log(result);
 
           if (response.ok) {
-            localStorage.setItem("login", "true");
+            localStorage.setItem("login", email);
             window.location.href = "../home/home.html";
           } else {
             alert("Login failed: " + result.message);

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Everyday Journal</title>
     <script>
-      if (localStorage.getItem("login") !== "true") {
+      if (!localStorage.getItem("login")) {
         window.location.href = "../signup/login.html";
       }
     </script>
@@ -118,6 +118,7 @@
             const entry = {
               text: entryText,
               date: new Date(),
+              email: localStorage.getItem("login"),
             };
 
             try {
