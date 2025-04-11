@@ -29,7 +29,16 @@ By **Team Quadratic Equations**
 - **AI Integration:** Gemini API
 
 ---
+## 🌐 Try the MVP
 
+👉 [Live Link to Mind Ease] https://missjahnavi.github.io/Mindease/
+
+---
+
+📺 **Watch our submission for the Google Solutions Challenge 2025 here:**  
+[Mind Ease – Demo Video] https://youtu.be/LjQ5A_Qz9Wc
+
+---
 ## 👥 Team
 
 - Aditi Bande  
